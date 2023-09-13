@@ -62,17 +62,13 @@ def update_hist(bairro, grav, ocorrencia):
     df_dto["Gravidade"] = df_dto.apply(mapear_gravidade, axis=1)
     if grav is not None:
         if grav == "Grave":
-            lista_gravidade = gravidade[3] + gravidade[2] + gravidade[1]
             g_factor = 3
         elif grav == "Média":
-            lista_gravidade = gravidade[2] + gravidade[1]
             g_factor = 2
         else:
-            lista_gravidade = gravidade[1]
             g_factor = 1
-        df_dto = df_dto[df_dto["Gravidade"] >= g_factor]
-
-        # print(df_dto)
+        print(g_factor)
+        df_dto = df_dto[df_dto["Gravidade"] <= g_factor]
         
     # Histograma
     hist_fig = px.histogram(df_dto, x="Tipo de Ocorrência", opacity=.75)
