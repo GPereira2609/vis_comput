@@ -9,7 +9,9 @@ from _controllers import *
 from _map import *
 from _histogram import *
 
-from app import app 
+from app import app
+
+server = app.server
 
 app.layout = dbc.Container([
     dbc.Row([
