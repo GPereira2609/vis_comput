@@ -68,7 +68,7 @@ def update_hist(bairro, grav, ocorrencia):
         else:
             g_factor = 1
         print(g_factor)
-        df_dto = df_dto[df_dto["Gravidade"] <= g_factor]
+        df_dto = df_dto[df_dto["Gravidade"] == g_factor]
         
     # Histograma
     hist_fig = px.histogram(df_dto, x="Tipo de Ocorrência", opacity=.75)
